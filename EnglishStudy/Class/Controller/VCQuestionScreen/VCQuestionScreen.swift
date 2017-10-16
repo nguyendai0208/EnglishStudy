@@ -16,9 +16,20 @@ class VCQuestionScreen: BaseController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.tbQuestions.rowHeight = UITableViewAutomaticDimension
         self.tbQuestions.estimatedRowHeight = 50
-        self.tbQuestions.separatorInset = UIEdgeInsets.init(top: 0, left: 0, bottom: 0, right: 0)
+        self.tbQuestions.separatorInset = UIEdgeInsets.init(top: 0, left: 0, bottom: 100, right: 0)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.setNavigationBarHidden(true, animated: animated)
+        super.viewWillAppear(animated)
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        self.navigationController?.setNavigationBarHidden(false, animated: animated)
+        super.viewWillDisappear(animated)
     }
 }
 
@@ -41,5 +52,6 @@ extension VCQuestionScreen : UITableViewDataSource, UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        self.performSegue(withIdentifier: Constant.SEQUE.OpenQuestionDetailScreen.rawValue, sender: nil)
     }
 }
