@@ -52,6 +52,15 @@ extension VCQuestionScreen : UITableViewDataSource, UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        self.performSegue(withIdentifier: Constant.SEQUE.OpenQuestionDetailScreen.rawValue, sender: nil)
+        self.performSegue(withIdentifier: Constant.SEQUE.OpenQuestionDetailScreen.rawValue, sender: indexPath)
+    }
+}
+extension VCQuestionScreen{
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == Constant.SEQUE.OpenQuestionDetailScreen.rawValue, let index = sender as? IndexPath{
+            let question = self.testItem.questions[index.row]
+            let vcDetailQuestion = segue.destination as? VCQuestionDetailScreen
+            vcDetailQuestion?.questionItem = question
+        }
     }
 }

@@ -80,9 +80,24 @@
                     <view key="view" contentMode="scaleToFill" id="WR2-sh-dO3">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="54K-ue-PGI">
+                                <rect key="frame" x="166" y="72" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="54K-ue-PGI" firstAttribute="top" secondItem="w51-k3-s70" secondAttribute="top" constant="8" id="xHj-Ry-0YR"/>
+                            <constraint firstItem="54K-ue-PGI" firstAttribute="centerX" secondItem="WR2-sh-dO3" secondAttribute="centerX" id="zeg-zs-lUp"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="w51-k3-s70"/>
                     </view>
+                    <connections>
+                        <outlet property="lbQuestion" destination="54K-ue-PGI" id="8Ml-ig-t10"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CGy-wJ-iG7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -10,8 +10,24 @@ import UIKit
 
 class VCQuestionDetailScreen: BaseController {
     
+    @IBOutlet weak var lbQuestion : UILabel!
+    
+    var questionItem : QuestionItem?
+    
+    fileprivate var indexQuestion : Int = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.isHidden = false
+        self.loadViewWithQuestion(self.questionItem)
+    }
+    
+    //MARK: Function
+    /**
+     reload view with question
+     */
+    fileprivate func loadViewWithQuestion(_ question : QuestionItem?){
+        guard let questionData = questionItem else { return  }
+        self.lbQuestion.text = questionData.question
     }
 }
